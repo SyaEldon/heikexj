@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：命名空间，用于隔离sql，还有一个很重要的作用，Mapper动态代理开发的时候使用，需要指定Mapper的类路径 -->
+<mapper namespace="cn.hkxj.mapper.UserMapper">
+	<!-- 根据条件查询用户 -->
+	<select id="queryUserByWhere" parameterType="cn.hkxj.pojo.User" resultType="cn.hkxj.pojo.User">
+		SELECT id, username, birthday, sex, address FROM `user`
+	<!-- where标签可以自动添加where，同时处理sql语句中第一个and关键字 -->
+		<where>
+			<if test="sex != null">
+				AND sex = #{sex}
+			</if>
+			<if test="username != null and username != ''">
+				AND username LIKE
+				'%${username}%'
+			</if>
+		</where>
+	</select>
+</mapper>

@@ -34,7 +34,7 @@
 	<!-- 配置Mapper扫描 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 配置Mapper扫描包 -->
-		<property name="basePackage" value="cn.hkxj.springmvc.mapper" />
+		<property name="basePackage" value="cn.hkxj.mapper" />
 	</bean>
 
 </beans>
